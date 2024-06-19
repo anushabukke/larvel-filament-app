@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class TaskManagement extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'task',
+        'priority',
+        'deadline',
+        'status',
+    ];
 }

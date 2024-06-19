@@ -4,31 +4,28 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTaskManagementTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('task_managements', function (Blueprint $table) {
+        Schema::create('task_management', function (Blueprint $table) {
             $table->id();
             $table->string('task');
             $table->string('priority')->nullable();
             $table->date('deadline')->nullable();
+            $table->string('status')->default('not completed');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('task_management');
+        Schema::dropIfExists('task_managements');
     }
-}
+};
